@@ -3,18 +3,18 @@ let exponent = prompt("Enter exponent");
 let numPower = 0;
 
 function power(num, exponent = 1) {
-  if (isNaN(num) || isNaN(exponent)) {
-    return "some eror";
-  } else {
-    num = Number(num);
-    exponent = Number(exponent);
-    return (numPower = Math.pow(num, exponent));
+  if ((num === null) || (exponent === null)) {
+    return "Cancelled";
+  } else if (( num.trim() === "") || (exponent.trim() === "")) {
+    return "Empty string";
   }
-}
-
-if (exponent == 0) {
-  exponent = undefined;
+  else if (isNaN(num) || isNaN(exponent)) {
+    return "Not a number";
+  } 
+  return Math.pow(+num, +exponent);
 }
 
 numPower = power(num, exponent);
 alert(numPower);
+
+
